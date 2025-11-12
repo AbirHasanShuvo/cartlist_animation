@@ -1,3 +1,5 @@
+import 'package:animation_cartlist/data/data.dart';
+import 'package:animation_cartlist/widgets/bar_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
             forceElevated: true,
             // floating: true,
             pinned: true,
+            //this pinned true is really a good feature
             expandedHeight: 100.0,
             // automaticallyImplyLeading: true,
             backgroundColor: Colors.green,
@@ -50,9 +53,21 @@ class _HomeScreenState extends State<HomeScreen> {
               return Container(
                 margin: EdgeInsets.all(10),
                 height: 100.0,
-                color: Colors.red,
+
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(0, 2),
+                      blurRadius: 6.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: BarChart(expenses: weeklySpending),
               );
-            }, childCount: 10),
+            }, childCount: 1),
           ),
         ],
       ),
